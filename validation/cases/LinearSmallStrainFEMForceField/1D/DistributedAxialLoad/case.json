@@ -1,0 +1,15 @@
+{
+  "geometry":   { "type": "Bar1D", "length": 1.0 },
+  "element":    "edge",
+  "material":   { "type": "LinearElastic", "youngModulus": 1e6, "poissonRatio": 0.3 },
+  "forceField": { "type": "LinearSmallStrainFEMForceField" },
+  "solvers": {
+    "integration":  { "type": "StaticEquilibriumIntegrationScheme", "maxNbIterationsNewton": 1,
+                      "residualThreshold": 0 },
+    "linearSolver": { "type": "SparseLDLSolver", "template": "CompressedRowSparseMatrixd" }
+  },
+  "mesh":       { "resolution": [10, 1, 1] },
+  "load":       { "type": "distributedAxial", "magnitude": 400000.0 },
+  "tolerance":         { "rms": 1e-10 },
+  "toleranceAnalytic": { "rms": 1e-10 }
+}
